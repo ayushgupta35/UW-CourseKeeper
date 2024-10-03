@@ -1,6 +1,6 @@
 # UW CourseKeeper Extension 🎓
 
-<p align="center">
+<p>
   <img src="demo1.png" alt="Demo1" height="500"/>
   <img src="demo2.png" alt="Demo2" height="500"/>
 </p>
