@@ -44,7 +44,7 @@ This extension **does not collect or store any personal data**. It only accesses
 
 Contributions, bug reports, and feature requests are welcome! Feel free to check the [issues page](https://github.com/your-username/uw-coursekeeper-extension/issues) if you find any bugs or have suggestions.
 
-1. Fork this repository 🍴.
+1. Fork this repository.
 2. Create a branch: `git checkout -b feature/your-feature-name`.
 3. Submit a pull request detailing the changes.
 
