@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "UW CourseKeeper",
   "version": "1.0",
-  "description": "UW CourseKeeper manage SLN codes for course registration. Syncs with MyPlan & Notify.UW for fast, error-free registration.",
+  "description": "Simplify Course Registration with Just One Click!",
   "permissions": [
     "storage"
   ],
