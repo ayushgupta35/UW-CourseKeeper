@@ -15,11 +15,11 @@ This tool is **non-profit** and designed with students in mind, making the regis
 
 ### Features ✨
 
-- **SLN Sync**: Automatically sync your saved SLN codes between **MyPlan**, **Notify.UW**, and the extension 📋.
+- **SLN Sync**: Automatically sync your saved SLN codes between **MyPlan**, **Notify.UW**, and the extension 📒.
 - **Dropdown Access**: Access all your SLN codes via convenient dropdowns on the registration page, so you never have to manually input them 🔽.
-- **Prioritize Courses**: Organize and prioritize your SLN codes in the Chrome extension popup for quick reference 🔢.
+- **Prioritize Courses**: Organize and prioritize your SLN codes in the Chrome extension popup for quick reference ⭐️.
 - **Real-Time Updates**: Stay updated with course availability through direct integration with **Notify.UW** 🔄.
-- **Error-Free Registration**: Prevent mis-entering SLN codes by copying them directly from the extension 📑.
+- **Error-Free Registration**: Prevent mis-entering SLN codes by copying them directly from the extension 🛑.
 
 ### Installation ⚙️
 
