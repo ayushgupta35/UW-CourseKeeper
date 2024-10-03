@@ -1,8 +1,9 @@
 # UW CourseKeeper Extension 🎓
 
-![Demo1](demo1.png)
-
-![Demo2](demo2.png)
+<p align="center">
+  <img src="demo1.png" alt="Demo1" height="500"/>
+  <img src="demo2.png" alt="Demo2" height="500"/>
+</p>
 
 ### Simplify Course Registration with Just One Click!
 
