@@ -1,6 +1,12 @@
 # UW CourseKeeper Extension 🎓
 
 <p>
+  <video width="320" height="240" controls>
+    <source src="demo1.MOV" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</p>
+<p>
   <img src="demo1.png" alt="Demo1" height="250"/>
   <img src="demo2.png" alt="Demo2" height="250"/>
 </p>
