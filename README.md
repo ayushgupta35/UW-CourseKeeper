@@ -1,11 +1,11 @@
 # UW CourseKeeper Extension 🎓
 
 <p>
-  <img src="demo3.gif" alt="Demo1" width="500"/>
+  <img src="demo3.gif" alt="Demo1" width="750"/>
 </p>
 <p>
-  <img src="demo2.png" alt="Demo2" width="250"/>
-  <img src="demo1.png" alt="Demo1" width="250"/>
+  <img src="demo2.png" alt="Demo2" width="375"/>
+  <img src="demo1.png" alt="Demo1" width="375"/>
 </p>
 
 
