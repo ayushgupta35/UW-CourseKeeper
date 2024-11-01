@@ -25,9 +25,9 @@ This tool is **non-profit** and designed with students in mind, making the regis
 - **Real-Time Updates**: Stay updated with course availability through direct integration with **Notify.UW** 🔄.
 - **Error-Free Registration**: Prevent mis-entering SLN codes by copying them directly from the extension 🛑.
 
-### Installation ⚙️
+### Chrome Web Store Installation ⚙️
 
-#### Chrome Web Store Coming soon! Be on the lookout! 👀
+#### One-Click Download [Here](https://chromewebstore.google.com/detail/uw-coursekeeper/ipdnhklbnjilkkcdlfneldhmgpbjmimf?authuser=0&hl=en)!
 
 For now, you can install it manually:
 
