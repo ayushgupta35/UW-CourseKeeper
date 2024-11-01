@@ -29,17 +29,6 @@ This tool is **non-profit** and designed with students in mind, making the regis
 
 #### One-Click Download [Here](https://chromewebstore.google.com/detail/uw-coursekeeper/ipdnhklbnjilkkcdlfneldhmgpbjmimf?authuser=0&hl=en)!
 
-For now, you can install it manually:
-
-1. Clone or download the repository.
-    ```bash
-    git clone https://github.com/your-username/uw-coursekeeper-extension.git
-    ```
-2. Go to `chrome://extensions/` in Chrome.
-3. Enable **Developer Mode**.
-4. Click on **Load unpacked** and select the folder where you cloned/downloaded the repository.
-5. Navigate to your **MyPlan** account and log in. Your saved SLN codes will appear automatically on the registration page and in the extension popup.
-
 ### Privacy & Data Collection 🔐
 
 This extension **does not collect or store any personal data**. It only accesses publicly available SLN information and syncs it across **MyPlan** and **Notify.UW** to assist students with registration. No user data is transmitted to any external server.
