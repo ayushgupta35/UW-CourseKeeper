@@ -1,14 +1,12 @@
 # UW CourseKeeper Extension 🎓
 
 <p>
-  <iframe width="750" src="https://www.youtube.com/watch?v=xlVydUPud5w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen</iframe>
-
+  <iframe width="750" height="422" src="https://www.youtube.com/embed/xlVydUPud5w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
 <p>
   <img src="demo2.png" alt="Demo2" width="375"/>
   <img src="demo1.png" alt="Demo1" width="375"/>
 </p>
-
 
 ### Simplify Course Registration with Just One Click!
 
