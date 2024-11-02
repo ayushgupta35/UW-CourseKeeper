@@ -1,9 +1,6 @@
 # UW CourseKeeper Extension 🎓
 
 <p>
-  [![Demo Video](https://img.youtube.com/vi/xlVydUPud5w/0.jpg)](https://www.youtube.com/watch?v=xlVydUPud5w)
-</p>
-<p>
   <img src="demo2.png" alt="Demo2" width="375"/>
   <img src="demo1.png" alt="Demo1" width="375"/>
 </p>
