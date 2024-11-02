@@ -1,7 +1,8 @@
 # UW CourseKeeper Extension 🎓
 
 <p>
-  <img src="demo3.gif" alt="Demo1" width="750"/>
+  <iframe width="750" src="https://www.youtube.com/watch?v=xlVydUPud5w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen</iframe>
+
 </p>
 <p>
   <img src="demo2.png" alt="Demo2" width="375"/>
