@@ -1,7 +1,7 @@
 # UW CourseKeeper Extension 🎓
 
 <p>
-  <iframe width="750" height="422" src="https://www.youtube.com/embed/xlVydUPud5w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  [![Demo Video](https://img.youtube.com/vi/xlVydUPud5w/0.jpg)](https://www.youtube.com/watch?v=xlVydUPud5w)
 </p>
 <p>
   <img src="demo2.png" alt="Demo2" width="375"/>
