@@ -133,3 +133,14 @@ function animateCourseReordering(courses, previousOrder, starredCourses, courseL
         }
     });
 }
+
+// Add event listener for the Notify.UW sync button
+document.getElementById('syncNotifyButton').addEventListener('click', function() {
+    // Set a flag in storage indicating we want to sync
+    chrome.storage.local.set({ 'triggerNotifySync': true }, function() {
+        console.log('Set trigger flag for Notify.UW sync');
+        
+        // Open the Notify.UW page in a new tab
+        chrome.tabs.create({ url: 'https://notify.uw.edu/notify/' });
+    });
+});
