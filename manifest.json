@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "UW CourseKeeper",
-  "version": "1.4",
+  "version": "2.1",
   "description": "Simplify Course Registration with Just One Click!",
   "permissions": [
     "storage"
@@ -15,7 +15,7 @@
       "js": ["content.js"]
     },
     {
-      "matches": ["https://sdb.admin.uw.edu/students/uwnetid/register.asp"],
+      "matches": ["https://register.uw.edu/register/*"],
       "js": ["content_register.js"]
     },
     {
