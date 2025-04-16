@@ -16,11 +16,22 @@ function injectCourseButtons(containerBefore) {
         const buttonContainer = document.createElement('div');
         buttonContainer.className = 'mb-3 d-flex flex-wrap gap-2';
 
-        // Label above buttons
-        const label = document.createElement('div');
+        // Label with icon above buttons
+        const headerContainer = document.createElement('div');
+        headerContainer.className = 'fw-bold mb-1 w-100';
+        
+        const icon = document.createElement('img');
+        icon.src = 'https://lh3.googleusercontent.com/jzaAf6qJXnbeTRqE96InbSPDvKKrNkVJRm2kPZePLYZ9M_zmD1C9A4kHBHWsyKdiQjOrQVTda1_IChqOcODKwcU3wCc=s120';
+        icon.alt = 'Icon';
+        icon.style.marginRight = '0.5rem';
+        icon.style.width = '40px';
+        headerContainer.appendChild(icon);
+        
+        const label = document.createElement('span');
         label.textContent = 'Quick Add from Notify.UW:';
-        label.className = 'fw-bold mb-1 w-100';
-        buttonContainer.appendChild(label);
+        headerContainer.appendChild(label);
+        
+        buttonContainer.appendChild(headerContainer);
 
         // Create buttons
         courses.forEach(course => {
