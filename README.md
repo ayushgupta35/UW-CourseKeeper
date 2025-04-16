@@ -9,17 +9,17 @@
 
 Tired of typing SLN codes only to find out you entered the wrong one or that the class filled up in the meantime? The **UW CourseKeeper Extension** is here to help. This Chrome extension integrates seamlessly with **MyPlan** and **Notify.UW**, giving you immediate access to your saved SLN codes—so you never lose time or make errors during registration again.
 
-No more searching through different tabs to find the SLN codes! They are all organized in easy-to-access dropdowns, synced perfectly with your **MyPlan** and **Notify.UW** data, saving you time and ensuring you can grab that spot in your desired class before someone else does.
+No more searching through different tabs to find the SLN codes! Your saved courses now show up as clean, clickable buttons directly on the registration page — synced with your MyPlan and Notify.UW data — so you can grab that spot in your desired class instantly.
 
 This tool is **non-profit** and designed with students in mind, making the registration process more efficient and user-friendly.
 
 ### Features ✨
 
-- **SLN Sync**: Automatically sync your saved SLN codes between **MyPlan**, **Notify.UW**, and the extension 📒.
-- **Dropdown Access**: Access all your SLN codes via convenient dropdowns on the registration page, so you never have to manually input them 🔽.
-- **Prioritize Courses**: Organize and prioritize your SLN codes in the Chrome extension popup for quick reference ⭐️.
-- **Real-Time Updates**: Stay updated with course availability through direct integration with **Notify.UW** 🔄.
-- **Error-Free Registration**: Prevent mis-entering SLN codes by copying them directly from the extension 🛑.
+- **SLN Sync**: Automatically sync your saved SLN codes between **MyPlan**, **Notify.UW**, and the extension 📒
+- **Quick-Add Buttons**: Instantly register by clicking course buttons injected above the cart — no typing, just click! ☑️
+- **Prioritize Courses**: Organize and prioritize your SLN codes in the Chrome extension popup for quick reference ⭐️
+- **Real-Time Updates**: Stay updated with course availability through direct integration with **Notify.UW** 🔄
+- **Error-Free Registration**: Prevent misentering SLN codes by copying them directly from the extension 🛑
 
 ### Chrome Web Store Installation ⚙️
 
