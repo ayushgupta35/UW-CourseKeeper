@@ -28,6 +28,16 @@ function safeChromeAccess(callback) {
     }
 }
 
+// Helper: get the quarter title by looking in the closest enclosing .card
+function findClosestQuarter(element) {
+    const card = element.closest('.card');
+    if (!card) return 'Unknown Quarter';
+    const titleEl = card.querySelector('.card-header .card-title');
+    return titleEl
+        ? titleEl.textContent.trim()
+        : 'Unknown Quarter';
+}
+
 // Function to sync the courses on Notify.UW with Chrome storage
 function syncCoursesWithStorage() {
     const coursesInPage = [];
@@ -45,7 +55,11 @@ function syncCoursesWithStorage() {
         const sln = slnElement ? slnElement.textContent.trim() : null;
 
         if (sln) {
-            const courseDetails = `${sln}: ${courseInfo}`; // Example: "16871: INFO 300 A"
+            // NEW: find the quarter heading above this button
+            const quarter = findClosestQuarter(button) || 'Unknown Quarter';
+
+            // include quarter in your stored string
+            const courseDetails = `${sln}: ${courseInfo} (${quarter})`; // Example: "16871: INFO 300 A (Autumn 2023)"
             coursesInPage.push(courseDetails); // Store the course and SLN in the array
         }
     });

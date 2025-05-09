@@ -5,99 +5,99 @@ document.addEventListener('DOMContentLoaded', function () {
 // Function to re-render courses after a change in starred status
 function renderCourses() {
     const courseList = document.getElementById('course-list');
-    const previousOrder = Array.from(courseList.children).map(item => item.innerText); // Capture the previous order
+    const previousOrder = Array.from(courseList.children).map(item => item.innerText);
 
-    // Retrieve courses and starred status from Chrome's local storage
     chrome.storage.local.get(['courses', 'starredCourses'], function (result) {
         let courses = result.courses || [];
         let starredCourses = result.starredCourses || {};
 
-        // Sort courses: Starred courses first, and then alphabetically
+        // sort courses: starred first, then alpha
         courses = courses.sort((a, b) => {
-            const aStarred = starredCourses[a] || false;
-            const bStarred = starredCourses[b] || false;
-
-            // Starred courses come first, then sort alphabetically
-            if (aStarred && !bStarred) return -1;
-            if (!aStarred && bStarred) return 1;
+            const aStar = starredCourses[a], bStar = starredCourses[b];
+            if (aStar && !bStar) return -1;
+            if (!aStar && bStar) return 1;
             return a.localeCompare(b);
         });
 
-        // Remove the previous list items
+        // group by quarter (extract via the "(Quarter)" suffix)
+        const grouped = {};
+        courses.forEach(full => {
+            const m = full.match(/^(.+)\s+\((.+)\)$/);
+            const courseText = m ? m[1] : full;
+            const quarter    = m ? m[2] : 'Unknown Quarter';
+            (grouped[quarter] = grouped[quarter] || []).push(full);
+        });
+
+        // sort quarters chronologically: Winter → Spring → Summer → Autumn, then by year
+        const seasonOrder = { Winter: 1, Spring: 2, Summer: 3, Autumn: 4 };
+        const sortedQuarters = Object.keys(grouped).sort((a, b) => {
+            const [seasonA, yearA] = a.split(' ');
+            const [seasonB, yearB] = b.split(' ');
+            const yearDiff = parseInt(yearA) - parseInt(yearB);
+            if (yearDiff !== 0) return yearDiff;
+            return (seasonOrder[seasonA] || 0) - (seasonOrder[seasonB] || 0);
+        });
+
+        // clear out old items
         while (courseList.firstChild) {
             courseList.removeChild(courseList.firstChild);
         }
 
-        // Populate the list with courses and add transition effects
-        courses.forEach((course, newIndex) => {
-            const sln = course.split(':')[0].trim(); // Get the SLN value
-            const listItem = document.createElement('li');
-            listItem.classList.add('reordering'); // Add class for smooth transitions
+        // render each quarter in sorted order
+        sortedQuarters.forEach(quarter => {
+            // quarter header
+            const h2 = document.createElement('h2');
+            h2.classList.add('quarter-header');
+            h2.innerText = quarter;
+            courseList.appendChild(h2);
 
-            const courseLink = document.createElement('a');
-            const checkmark = document.createElement('span');
-            const starButton = document.createElement('button'); // Star button
+            // its courses
+            grouped[quarter].forEach(full => {
+                const courseText = full.replace(` (${quarter})`, '');
+                const sln = courseText.split(':')[0].trim();
 
-            courseLink.href = '#'; // No URL, since we're copying to the clipboard
-            courseLink.innerText = course;
+                const li = document.createElement('li');
+                li.classList.add('reordering');
 
-            // Add an event listener to copy the SLN code to the clipboard
-            courseLink.addEventListener('click', function (event) {
-                event.preventDefault();
-                navigator.clipboard.writeText(sln).then(() => {
-                    courseLink.classList.add('copied');
-                    setTimeout(() => {
-                        courseLink.classList.remove('copied');
-                    }, 2000);
-                }).catch(err => {
-                    console.error('Failed to copy text: ', err);
+                const link = document.createElement('a');
+                link.href = '#';
+                link.innerText = courseText;
+                link.setAttribute('data-tooltip', 'Click to copy SLN');
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    navigator.clipboard.writeText(sln);
+                    link.classList.add('copied');
+                    setTimeout(() => link.classList.remove('copied'), 2000);
                 });
-            });
+                const check = document.createElement('span');
+                check.classList.add('checkmark');
+                link.appendChild(check);
 
-            // Add hover tooltip
-            courseLink.setAttribute("data-tooltip", "Click to copy SLN");
+                const star = document.createElement('button');
+                star.classList.add('star-button');
+                star.innerHTML = starredCourses[full] ? '★' : '☆';
+                star.addEventListener('click', () => {
+                    star.classList.add('star-clicked');
+                    starredCourses[full] = !starredCourses[full];
+                    animateCourseReordering(courses, previousOrder, starredCourses, courseList);
+                    setTimeout(() => {
+                        chrome.storage.local.set({ starredCourses }, () => renderCourses());
+                    }, 500);
+                });
 
-            // Add checkmark element for the animation
-            checkmark.classList.add('checkmark');
-            courseLink.appendChild(checkmark);
+                li.appendChild(link);
+                li.appendChild(star);
+                courseList.appendChild(li);
 
-            // Star button
-            starButton.innerHTML = starredCourses[course] ? '★' : '☆'; // Star icon
-            starButton.classList.add('star-button');
-            starButton.addEventListener('click', function () {
-                // Add animation class for star click
-                starButton.classList.add('star-clicked');
-
-                // Toggle starred status
-                starredCourses[course] = !starredCourses[course];
-                
-                // Trigger smooth reorder animation
-                animateCourseReordering(courses, previousOrder, starredCourses, courseList);
-
-                // Save the updated starred status and re-render the courses
-                setTimeout(() => {
-                    chrome.storage.local.set({ starredCourses: starredCourses }, () => {
-                        renderCourses();
-                    });
-                }, 500); // Adjust timing to allow smooth animations
-            });
-
-            listItem.appendChild(courseLink);
-            listItem.appendChild(starButton); // Append star button to list item
-            courseList.appendChild(listItem);
-
-            // Animate item movement using the current index and the previous one
-            const previousIndex = previousOrder.indexOf(course);
-            if (previousIndex > -1 && previousIndex !== newIndex) {
-                if (previousIndex < newIndex) {
-                    listItem.classList.add('moving-down');
-                } else {
-                    listItem.classList.add('moving-up');
+                // initial move animation
+                const prevIndex = previousOrder.indexOf(full);
+                const newIndex  = Array.from(courseList.children).indexOf(li);
+                if (prevIndex > -1 && prevIndex !== newIndex) {
+                    li.classList.add(prevIndex < newIndex ? 'moving-down' : 'moving-up');
                 }
-            }
+            });
         });
 
-        // Trigger reordering animation
         animateReordering(courseList);
     });
 }

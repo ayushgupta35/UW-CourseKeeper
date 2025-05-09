@@ -1,13 +1,24 @@
 // Helper function to extract course details from the row
 function extractCourseDetails(row) {
+    // grab the quarter from the nearest enclosing card-header
+    const card = row.closest('.card');
+    let quarter = 'Unknown Quarter';
+    if (card) {
+        const quarterEl = card.querySelector('.card-header span.fs-4');
+        if (quarterEl) {
+            quarter = quarterEl.textContent.trim();
+        }
+    }
+
     const slnElement = row.querySelector('td a[href*="SLN"]');
     const sectionDiv = row.querySelector('div[id^="section-code"]');
 
     if (slnElement && sectionDiv) {
         const sln = slnElement.textContent.trim();
-        const classInfo = sectionDiv.id.split('-').slice(-3, -1).join(' '); // Extract class name (e.g., INFO 201)
-        const section = sectionDiv.id.split('-').pop(); // Extract section name (e.g., A)
-        return `${sln}: ${classInfo} ${section}`;
+        const classInfo = sectionDiv.id.split('-').slice(-3, -1).join(' '); // e.g. "INFO 201"
+        const section = sectionDiv.id.split('-').pop();                    // e.g. "A"
+        // include quarter in the returned string
+        return `${sln}: ${classInfo} ${section} (${quarter})`;
     }
 
     return null;

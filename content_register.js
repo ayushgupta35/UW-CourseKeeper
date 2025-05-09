@@ -3,6 +3,15 @@ function injectCourseButtons(containerBefore) {
         let courses = result.courses || [];
         let starredCourses = result.starredCourses || {};
 
+        // ONLY show courses for the quarter currently displayed
+        const regQuarterEl = document.getElementById('reg-quarter');
+        const currentQuarter = regQuarterEl
+            ? (regQuarterEl.textContent.match(/\b(Winter|Spring|Summer|Autumn)\s+\d{4}\b/) || [])[0]
+            : null;
+        if (currentQuarter) {
+            courses = courses.filter(course => course.includes(`(${currentQuarter})`));
+        }
+
         // Sort courses: Starred first, then alphabetically
         courses = courses.sort((a, b) => {
             const aStarred = starredCourses[a] || false;
